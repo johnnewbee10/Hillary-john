@@ -1,0 +1,41 @@
+HILLARY JOHN 
+EB3/61590/22
+import time
+
+def factorial(n):
+    if n == 0 or n == 1:
+        return 1
+    else:
+        return n * factorial(n - 1)
+
+def fibonacci(n):
+    if n <= 0:
+        return 0
+    elif n == 1:
+        return 1
+    else:
+        return fibonacci(n - 1) + fibonacci(n - 2)
+
+def measure_runtime(func, n):
+    start_time = time.time()
+    result = func(n)
+    end_time = time.time()
+    runtime = end_time - start_time
+    return result, runtime
+
+if _name_ == "_main_":
+    num = 10  # Change this number to test different inputs
+
+    fact_result, fact_time = measure_runtime(factorial, num)
+    fib_result, fib_time = measure_runtime(fibonacci, num)
+
+    # Print results
+    print(f"Factorial of {num}: {fact_result} (Runtime: {fact_time:.6f} sec)")
+    print(f"Fibonacci({num}): {fib_result} (Runtime: {fib_time:.6f} sec)")
+
+    # Save runtime information to README.md
+    with open("README.md", "w") as file:
+        file.write("# Factorial & Fibonacci Program\n")
+        file.write(f"Factorial of {num}: {fact_result} (Runtime: {fact_time:.6f} sec)\n")
+        file.write(f"Fibonacci({num}): {fib_result} (Runtime: {fib_time:.6f} sec)\n")
+        file.write("\n## Author: John Amat-Alexandru")
